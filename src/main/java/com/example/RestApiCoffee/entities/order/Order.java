@@ -10,6 +10,7 @@ import com.example.RestApiCoffee.entities.order.sandwich.SandwichOrder;
 import com.example.RestApiCoffee.entities.order.snack.SnackOrder;
 import com.example.RestApiCoffee.entities.order.tea.TeaOrder;
 import com.example.RestApiCoffee.entities.user.User;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,7 +29,7 @@ public class Order {
 
     @JoinColumn(name = "user_id")
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
-    @JsonManagedReference
+    @JsonBackReference
     private User user;
     private String date;
     private String time;
@@ -61,7 +62,7 @@ public class Order {
     private String flat;
     @JoinColumn(name = "paymentForm_id")
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
-    @JsonManagedReference
+    @JsonBackReference
     private PaymentForm paymentForm;
     private String prepareCash;
     private String comment;

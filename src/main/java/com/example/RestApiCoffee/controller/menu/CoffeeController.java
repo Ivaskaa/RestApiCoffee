@@ -19,7 +19,7 @@ public class CoffeeController {
     private final CoffeeService coffeeService;
 
     @GetMapping()
-    public ResponseEntity<List<Coffee>> getAllLocations(){
+    public ResponseEntity<List<Coffee>> getAllCoffees(){
         List<Coffee> coffees = coffeeService.findAllActive();
 
         if(coffees.isEmpty()){

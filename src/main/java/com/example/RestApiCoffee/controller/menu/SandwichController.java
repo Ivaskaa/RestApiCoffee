@@ -18,7 +18,7 @@ public class SandwichController {
     private final SandwichService sandwichService;
 
     @GetMapping()
-    public ResponseEntity<List<Sandwich>> getAllLocations(){
+    public ResponseEntity<List<Sandwich>> getAllSandwiches(){
         List<Sandwich> sandwiches = sandwichService.findAllActive();
 
         if(sandwiches.isEmpty()){

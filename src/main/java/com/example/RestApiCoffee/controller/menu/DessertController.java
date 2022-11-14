@@ -19,7 +19,7 @@ public class DessertController {
     private final DessertService dessertService;
 
     @GetMapping()
-    public ResponseEntity<List<Dessert>> getAllLocations(){
+    public ResponseEntity<List<Dessert>> getAllDesserts(){
         List<Dessert> desserts = dessertService.findAllActive();
 
         System.out.println(desserts);

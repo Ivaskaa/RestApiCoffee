@@ -32,9 +32,9 @@ public class ProfileController {
     private final UserService userService;
 
     @GetMapping()
-    public ResponseEntity<?> getProfile(
-            @AuthenticationPrincipal User user
-    ){ // fixme
+    public ResponseEntity<?> getProfile(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findByPhone(authentication.getName());
         if(user == null){
             return new ResponseEntity<>(new MessageResponse("user is null"), HttpStatus.BAD_REQUEST);
         }
@@ -61,9 +61,10 @@ public class ProfileController {
 
     @GetMapping("/checkPassword")
     public ResponseEntity<?> checkPassword(
-            @AuthenticationPrincipal User user,
             @RequestBody PasswordRequest passwordRequest
     ){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findByPhone(authentication.getName());
         if(user == null){
             return new ResponseEntity<>(new MessageResponse("user is null"), HttpStatus.BAD_REQUEST);
         }
@@ -78,10 +79,11 @@ public class ProfileController {
 
     @PutMapping()
     public ResponseEntity<?> updateProfile(
-            @AuthenticationPrincipal User user,
             @Valid @RequestBody UpdateUserRequest updateUserRequest,
             BindingResult bindingResult
     ){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findByPhone(authentication.getName());
         if(updateUserRequest == null){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }

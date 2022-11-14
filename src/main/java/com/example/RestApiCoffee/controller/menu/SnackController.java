@@ -18,7 +18,7 @@ public class SnackController {
     private final SnackService snackService;
 
     @GetMapping()
-    public ResponseEntity<List<Snack>> getAllLocations(){
+    public ResponseEntity<List<Snack>> getAllSnacks(){
         List<Snack> snacks = snackService.findAllActive();
 
         if(snacks.isEmpty()){

@@ -18,7 +18,7 @@ public class TeaController {
     private final TeaService teaService;
 
     @GetMapping()
-    public ResponseEntity<List<Tea>> getAllLocations(){
+    public ResponseEntity<List<Tea>> getAllTeas(){
         List<Tea> teas = teaService.findAllActive();
 
         if(teas.isEmpty()){

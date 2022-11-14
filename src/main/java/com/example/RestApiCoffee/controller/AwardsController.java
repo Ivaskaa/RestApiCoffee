@@ -16,7 +16,9 @@ import com.example.RestApiCoffee.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -30,7 +32,6 @@ public class AwardsController {
     private final SandwichOrderService sandwichOrderService;
     private final SnackOrderService snackOrderService;
     private final TeaOrderService teaOrderService;
-
 
     @GetMapping()
     public ResponseEntity<AwardsDto> getAllAwards(){
@@ -46,9 +47,10 @@ public class AwardsController {
 
     @PostMapping("/coffee")
     public ResponseEntity<?> coffee(
-            @AuthenticationPrincipal User user,
             @RequestBody Award award
     ){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findByPhone(authentication.getName());
         Order order = orderService.findById(1L);
 
         if(award == null){
@@ -73,9 +75,10 @@ public class AwardsController {
 
     @PostMapping("/dessert")
     public ResponseEntity<?> dessert(
-            @AuthenticationPrincipal User user,
             @RequestBody Award award
     ){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findByPhone(authentication.getName());
         Order order = orderService.findById(1L);
 
         if(award == null){
@@ -100,9 +103,10 @@ public class AwardsController {
 
     @PostMapping("/sandwich")
     public ResponseEntity<?> sandwich(
-            @AuthenticationPrincipal User user,
             @RequestBody Award award
     ){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findByPhone(authentication.getName());
         Order order = orderService.findById(1L);
 
         if(award == null){
@@ -128,9 +132,10 @@ public class AwardsController {
 
     @PostMapping("/snack")
     public ResponseEntity<?> snack(
-            @AuthenticationPrincipal User user,
             @RequestBody Award award
     ){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findByPhone(authentication.getName());
         Order order = orderService.findById(1L);
 
         if(award == null){
@@ -155,9 +160,10 @@ public class AwardsController {
 
     @PostMapping("/tea")
     public ResponseEntity<?> tea(
-            @AuthenticationPrincipal User user,
             @RequestBody Award award
     ){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findByPhone(authentication.getName());
         Order order = orderService.findById(1L);
 
         if(award == null){

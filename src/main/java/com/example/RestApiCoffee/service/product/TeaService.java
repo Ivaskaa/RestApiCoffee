@@ -4,7 +4,6 @@ import com.example.RestApiCoffee.entities.product.tea.Tea;
 import com.example.RestApiCoffee.repository.product.TeaRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
