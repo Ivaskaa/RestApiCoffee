@@ -14,7 +14,6 @@ public class FeedbackService {
 
     public Feedback save(Feedback feedback) {
         log.info("save feedback: {}", feedback);
-        feedback.setStatus("Unwatched");
         feedbackRepository.save(feedback);
         log.info("success");
         return feedback;

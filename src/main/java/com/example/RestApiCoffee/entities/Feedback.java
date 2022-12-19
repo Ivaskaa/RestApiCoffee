@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -16,15 +18,16 @@ public class Feedback {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotEmpty(message = "Name shouldn't be empty")
+    @NotBlank(message = "Name shouldn't be empty")
     @Size(max = 255, message = "Name should be less than 255 characters")
     private String name;
 
-    @NotEmpty(message = "Phone shouldn't be empty")
+    @NotBlank(message = "Phone shouldn't be empty")
     @Size(max = 255, message = "Phone should be less than 255 characters")
     private String phone;
 
-    @NotEmpty(message = "Email shouldn't be empty")
+    @NotBlank(message = "Email shouldn't be empty")
+    @Email(message = "Email must be valid")
     @Size(max = 255, message = "Email should be less than 255 characters")
     private String email;
 

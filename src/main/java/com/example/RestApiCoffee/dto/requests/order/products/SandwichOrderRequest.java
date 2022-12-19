@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 public class SandwichOrderRequest {
-    private ObjectRequest snack;
+    private ObjectRequest sandwich;
     private ObjectRequest sauce;
     private ObjectRequest supplement;
     private ObjectRequest size;

@@ -104,19 +104,6 @@
 			<version>3.0.0</version>
 		</dependency>
 
-<!--		&lt;!&ndash; swagger2 &ndash;&gt;-->
-<!--		<dependency>-->
-<!--			<groupId>io.springfox</groupId>-->
-<!--			<artifactId>springfox-swagger2</artifactId>-->
-<!--			<version>2.4.0</version>-->
-<!--		</dependency>-->
-
-<!--		&lt;!&ndash; swagger-ui &ndash;&gt;-->
-<!--		<dependency>-->
-<!--			<groupId>io.springfox</groupId>-->
-<!--			<artifactId>springfox-swagger-ui</artifactId>-->
-<!--			<version>2.4.0</version>-->
-<!--		</dependency>-->
 
 		<!-- Log4j2 -->
 		<dependency>

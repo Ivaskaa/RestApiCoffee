@@ -39,10 +39,8 @@ public class OrderDto {
 
     public Order build(){
         Order order = new Order();
-        SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
-        order.setDate(formatDate.format(date));
-        SimpleDateFormat formatTime = new SimpleDateFormat("HH:mm");
-        order.setTime(formatTime.format(time));
+        order.setDate(date);
+        order.setTime(time);
 
         order.setCoffeeOrder(new HashSet<>());
         if(coffeeOrder != null) {

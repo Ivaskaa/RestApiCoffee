@@ -16,6 +16,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Set;
 
 @Getter
@@ -31,8 +32,8 @@ public class Order {
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @JsonBackReference
     private User user;
-    private String date;
-    private String time;
+    private Date date;
+    private Date time;
     @JoinColumn(name = "order_id")
     @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     @JsonManagedReference
